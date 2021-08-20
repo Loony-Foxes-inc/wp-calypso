@@ -1,5 +1,7 @@
 import { Page } from 'playwright';
 
+export type PaymentMethods = 'Credit Card' | 'Paypal' | 'Free';
+
 const selectors = {
 	modalContinueButton: 'button:text("Continue")',
 	closeCheckoutButton: `[title="Close Checkout"]`,
@@ -26,6 +28,9 @@ export class CartCheckoutPage {
 		this.page = page;
 	}
 
+	/**
+	 * Closes the secure checkout page and return to the previous screen.
+	 */
 	async close(): Promise< void > {
 		await Promise.all( [
 			this.page.waitForNavigation(),
@@ -33,7 +38,12 @@ export class CartCheckoutPage {
 		] );
 	}
 
-	async selectPaymentMethod( method: 'Credit Card' | 'Paypal' ): Promise< void > {
+	/**
+	 * Select the payment method to be used.
+	 *
+	 * @param {PaymentMethods} method The payment method to be used.
+	 */
+	async selectPaymentMethod( method: PaymentMethods ): Promise< void > {
 		await this.page.check( `input[aria-label="${ method }"]` );
 	}
 
@@ -53,7 +63,21 @@ export class CartCheckoutPage {
 	 * @param {string} cartItemName Name of the item to remove from the cart.
 	 */
 	async removeCartItem( cartItemName: string ): Promise< void > {
+		const cartItems = await this.page.$$( `.checkout-line-item` );
 		await this.page.click( selectors.removeCartItemButton( cartItemName ) );
-		await this.page.click( selectors.modalContinueButton );
+
+		// If the only item in cart is removed, the checkout is automatically dismissed,
+		// navigating user back to the Upgrades > Plans page with the Plans tab selected.
+		if ( cartItems.length === 1 ) {
+			await Promise.all( [
+				this.page.waitForNavigation(),
+				this.page.click( selectors.modalContinueButton ),
+			] );
+		} else {
+			await Promise.all( [
+				this.page.waitForLoadState( 'load' ),
+				this.page.click( selectors.modalContinueButton ),
+			] );
+		}
 	}
 }
