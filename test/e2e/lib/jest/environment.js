@@ -19,6 +19,9 @@ class JestEnvironmentE2E extends JestEnvironmentNode {
 				break;
 
 			case 'hook_failure':
+				console.error( event.error );
+				this.testFailed = true;
+				break;
 			case 'test_fn_failure':
 				this.global.__CURRENT_TEST_FAILED__ = true;
 				this.testFailed = true;
