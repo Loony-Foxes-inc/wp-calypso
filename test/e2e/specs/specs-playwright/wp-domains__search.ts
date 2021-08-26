@@ -22,7 +22,7 @@ describe( DataHelper.createSuiteTitle( 'Domains: Add to current site' ), functio
 		siteType      | user               | paymentMethod
 		${ 'Simple' } | ${ 'defaultUser' } | ${ 'Credit Card' }
 	`( 'Domains: Add to current site ($siteType)', function ( { user, paymentMethod } ) {
-		const phrase = DataHelper.randomPhrase();
+		const phrase = DataHelper.getRandomPhrase();
 
 		let sidebarComponent: SidebarComponent;
 		let domainSearchComponent: DomainSearchComponent;
@@ -62,8 +62,8 @@ describe( DataHelper.createSuiteTitle( 'Domains: Add to current site' ), functio
 			await cartCheckoutPage.selectPaymentMethod( paymentMethod );
 		} );
 
-		it( 'Remove domain cart item', async function () {
-			await cartCheckoutPage.removeCartItem( selectedDomain );
+		it( 'Remove domain cart item then close checkout', async function () {
+			await cartCheckoutPage.removeCartItem( selectedDomain, { closeCheckout: true } );
 		} );
 	} );
 } );

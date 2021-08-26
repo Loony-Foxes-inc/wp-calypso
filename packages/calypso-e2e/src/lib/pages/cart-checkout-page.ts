@@ -3,12 +3,14 @@ import { Page } from 'playwright';
 export type PaymentMethods = 'Credit Card' | 'Paypal' | 'Free';
 
 const selectors = {
+	// General selectors
 	modalContinueButton: 'button:text("Continue")',
 	closeCheckoutButton: `[title="Close Checkout"]`,
 
 	// Cart items
-	cartItem: ( itemName: string ) =>
-		`[data-testid="review-order-step--visible"] .checkout-line-item >> text=${ itemName.trim() }`,
+	cartItems: '.order-review-line-items > li:visible', // match all cart items
+	cartItemByName: ( itemName: string ) =>
+		`.order-review-line-items:has-text("${ itemName }"):visible`, // match cart item by name
 	removeCartItemButton: ( itemName: string ) =>
 		`[data-testid="review-order-step--visible"] button[aria-label*="Remove ${ itemName.trim() } from cart"]`,
 };
@@ -29,16 +31,6 @@ export class CartCheckoutPage {
 	}
 
 	/**
-	 * Closes the secure checkout page and return to the previous screen.
-	 */
-	async close(): Promise< void > {
-		await Promise.all( [
-			this.page.waitForNavigation(),
-			this.page.click( selectors.closeCheckoutButton ),
-		] );
-	}
-
-	/**
 	 * Select the payment method to be used.
 	 *
 	 * @param {PaymentMethods} method The payment method to be used.
@@ -54,16 +46,24 @@ export class CartCheckoutPage {
 	 * @throws If the expected cart item is not found in the timeout period.
 	 */
 	async validateCartItem( expectedCartItemName: string ): Promise< void > {
-		await this.page.waitForSelector( selectors.cartItem( expectedCartItemName ) );
+		await this.page.waitForSelector( selectors.cartItemByName( expectedCartItemName.trim() ) );
 	}
 
 	/**
 	 * Removes the specified cart item from the cart completely.
 	 *
 	 * @param {string} cartItemName Name of the item to remove from the cart.
+	 * @param param1 Keyed object parameter.
+	 * @param {boolean} param1.closeCheckout If true, method will attempt to close the checkout screen.
 	 */
-	async removeCartItem( cartItemName: string ): Promise< void > {
-		const cartItems = await this.page.$$( `.checkout-line-item` );
+	async removeCartItem(
+		cartItemName: string,
+		{ closeCheckout }: { closeCheckout?: boolean } = {}
+	): Promise< void > {
+		// Checkout page adds dynamic css classes and the same classes are
+		// shared across multiple elements on page. Limit the search to items
+		// within the order review line that are visible.
+		const cartItems = await this.page.$$( selectors.cartItems );
 		await this.page.click( selectors.removeCartItemButton( cartItemName ) );
 
 		// If the only item in cart is removed, the checkout is automatically dismissed,
@@ -74,10 +74,25 @@ export class CartCheckoutPage {
 				this.page.click( selectors.modalContinueButton ),
 			] );
 		} else {
-			await Promise.all( [
-				this.page.waitForLoadState( 'load' ),
-				this.page.click( selectors.modalContinueButton ),
-			] );
+			// Otherwise confirm the removal of cart item.
+			await this.page.click( selectors.modalContinueButton );
+
+			// If checkout should be closed, perform the action now.
+			if ( closeCheckout ) {
+				await this.closeCheckout();
+			}
 		}
+	}
+
+	/**
+	 * Closes the checkout page.
+	 *
+	 * @returns {Promise<void>} No return value.
+	 */
+	async closeCheckout(): Promise< void > {
+		await Promise.all( [
+			this.page.waitForNavigation(),
+			this.page.click( selectors.closeCheckoutButton ),
+		] );
 	}
 }

@@ -68,12 +68,12 @@ describe( DataHelper.createSuiteTitle( 'Plans: Purchases' ), function () {
 			await cartCheckoutPage.validateCartItem( cartItemForPremiumPlan );
 		} );
 
-		it( 'Remove plan from cart', async function () {
-			await cartCheckoutPage.removeCartItem( cartItemForPremiumPlan );
+		it( 'Remove WordPress.com Premium plan from cart then close checkout', async function () {
+			await cartCheckoutPage.removeCartItem( cartItemForPremiumPlan, { closeCheckout: true } );
 		} );
 
-		it( 'Automatically land back on "Plans" tab of Plans page', async function () {
-			plansPage = new PlansPage( page );
+		it( 'Returned to Upgrades > Plans', async function () {
+			const plansPage = new PlansPage( page );
 			await plansPage.validateActiveNavigationTab( 'Plans' );
 		} );
 	} );
@@ -89,12 +89,12 @@ describe( DataHelper.createSuiteTitle( 'Plans: Purchases' ), function () {
 			await cartCheckoutPage.validateCartItem( cartItemForBusinessPlan );
 		} );
 
-		it( 'Remove Business plan from cart', async function () {
-			await cartCheckoutPage.removeCartItem( cartItemForBusinessPlan );
+		it( 'Remove WordPress.com Business from cart then close checkout', async function () {
+			await cartCheckoutPage.removeCartItem( cartItemForBusinessPlan, { closeCheckout: true } );
 		} );
 
-		it( 'Automatically land back on "Plans" tab of Plans page', async function () {
-			plansPage = new PlansPage( page );
+		it( 'Returned to Upgrades > Plans', async function () {
+			const plansPage = new PlansPage( page );
 			await plansPage.validateActiveNavigationTab( 'Plans' );
 		} );
 	} );
