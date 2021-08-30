@@ -10,6 +10,7 @@ import { Field, styled } from '@automattic/wpcom-checkout';
 import { useTranslate } from 'i18n-calypso';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import useCartKey from 'calypso/my-sites/checkout/use-cart-key';
 import getCountries from 'calypso/state/selectors/get-countries';
 import {
 	prepareDomainContactDetails,
@@ -44,7 +45,8 @@ export default function ContactDetailsContainer( {
 	isLoggedOutCart: boolean;
 } ): JSX.Element {
 	const translate = useTranslate();
-	const { responseCart } = useShoppingCart();
+	const cartKey = useCartKey();
+	const { responseCart } = useShoppingCart( cartKey );
 	const domainNames: string[] = responseCart.products
 		.filter( ( product ) => isDomainProduct( product ) || isDomainTransfer( product ) )
 		.filter( ( product ) => ! isDomainMapping( product ) )
