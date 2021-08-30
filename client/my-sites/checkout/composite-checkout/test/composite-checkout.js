@@ -11,6 +11,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import '@testing-library/jest-dom/extend-expect';
+import useCartKey from 'calypso/my-sites/checkout/use-cart-key';
 import isAtomicSite from 'calypso/state/selectors/is-site-automated-transfer';
 import { getPlansBySiteId } from 'calypso/state/sites/plans/selectors/get-plans-by-site';
 import { isJetpackSite } from 'calypso/state/sites/selectors';
@@ -19,6 +20,7 @@ import CompositeCheckout from '../composite-checkout';
 jest.mock( 'calypso/state/sites/selectors' );
 jest.mock( 'calypso/state/selectors/is-site-automated-transfer' );
 jest.mock( 'calypso/state/sites/plans/selectors/get-plans-by-site' );
+jest.mock( 'calypso/my-sites/checkout/use-cart-key' );
 
 jest.mock( 'page', () => ( {
 	redirect: jest.fn(),
@@ -362,6 +364,7 @@ describe( 'CompositeCheckout', () => {
 				setCart: mockSetCartEndpoint,
 			} );
 			const mainCartKey = 'foo.com';
+			useCartKey.mockImplementation( () => ( useUndefinedCartKey ? undefined : mainCartKey ) );
 			return (
 				<ReduxProvider store={ store }>
 					<ShoppingCartProvider
