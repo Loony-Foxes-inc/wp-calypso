@@ -2967,7 +2967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.15.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.3.4, @babel/runtime@npm:^7.4.5, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.15.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.3.4, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.15.3
   resolution: "@babel/runtime@npm:7.15.3"
   dependencies:
@@ -7122,18 +7122,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16.9.0, @types/react@npm:^16, @types/react@npm:^16.14.11, @types/react@npm:^16.9.0":
-  version: 16.14.11
-  resolution: "@types/react@npm:16.14.11"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: 67ab9702c6aa982c2ce76251ae9f6b381960877ad375ceb02515a39550ea59bf79f5e62594f5cabb9671ebe377f3f5ffe3223cc6bee0615a759a3aaf89484792
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^17.0.2":
+"@types/react@npm:*, @types/react@npm:>=16.9.0, @types/react@npm:^17.0.2":
   version: 17.0.19
   resolution: "@types/react@npm:17.0.19"
   dependencies:
@@ -7141,6 +7130,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 481a0c4f4e6e28f63033d8c4de61c64b502e39a34d0e8a2bfd42de783cb762ffc55258446879b0180f8218de4438749191d9d30db92cce98948ad3676e359ce3
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^16, @types/react@npm:^16.14.11, @types/react@npm:^16.9.0":
+  version: 16.14.11
+  resolution: "@types/react@npm:16.14.11"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: 67ab9702c6aa982c2ce76251ae9f6b381960877ad375ceb02515a39550ea59bf79f5e62594f5cabb9671ebe377f3f5ffe3223cc6bee0615a759a3aaf89484792
   languageName: node
   linkType: hard
 
@@ -7307,22 +7307,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/wordpress__block-editor@npm:*":
-  version: 2.2.9
-  resolution: "@types/wordpress__block-editor@npm:2.2.9"
-  dependencies:
-    "@types/react": "*"
-    "@types/wordpress__blocks": "*"
-    "@types/wordpress__components": "*"
-    "@types/wordpress__data": "*"
-    "@types/wordpress__keycodes": "*"
-    "@wordpress/element": ^2.14.0
-    react-autosize-textarea: ^7.0.0
-  checksum: f51c9c06a2a2a1acebd72492c415c8a3d678485bcb21e0435dc77c45501eaae0c6c509f34f867aee4272b22b40c41accd10dda351d5503c62314ba6876ac4570
-  languageName: node
-  linkType: hard
-
-"@types/wordpress__block-editor@npm:^6.0.3":
+"@types/wordpress__block-editor@npm:*, @types/wordpress__block-editor@npm:^6.0.3":
   version: 6.0.3
   resolution: "@types/wordpress__block-editor@npm:6.0.3"
   dependencies:
@@ -7356,23 +7341,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/wordpress__components@npm:*":
-  version: 9.8.6
-  resolution: "@types/wordpress__components@npm:9.8.6"
-  dependencies:
-    "@types/react": "*"
-    "@types/tinycolor2": "*"
-    "@types/wordpress__components": "*"
-    "@types/wordpress__notices": "*"
-    "@types/wordpress__rich-text": "*"
-    "@wordpress/element": ^2.14.0
-    downshift: ^4.0.5
-    re-resizable: ^4.7.1
-  checksum: 8d9fffd54a91c6ec4f7a3f9edc37fd969a0a8f5379dd207e948ae516cd9ca842c8efb3cb1b30b0209a6c9b791d7d744a92e9bd9e817379df4cfec49d012a2bb7
-  languageName: node
-  linkType: hard
-
-"@types/wordpress__components@npm:^14.0.3":
+"@types/wordpress__components@npm:*, @types/wordpress__components@npm:^14.0.3":
   version: 14.0.3
   resolution: "@types/wordpress__components@npm:14.0.3"
   dependencies:
@@ -14871,7 +14840,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compute-scroll-into-view@npm:^1.0.16, compute-scroll-into-view@npm:^1.0.9":
+"compute-scroll-into-view@npm:^1.0.16":
   version: 1.0.17
   resolution: "compute-scroll-into-view@npm:1.0.17"
   checksum: 98ba88a3af2e4d9c39e1a329f9d1615eeed0e528350ce01b63fb43d1c611dfc31c0639f47844dc8e7bf4d429745bce88efbb035ee2116d51d33b33d55d794f0c
@@ -17386,20 +17355,6 @@ __metadata:
   version: 1.4.7
   resolution: "downloadjs@npm:1.4.7"
   checksum: a89af5fc0b0034402ca2d58c8a09e2baaabdd6b7be47bf227755f50bddd3463eae1abaab6bf68b9b4814ce7cc39d63af9066df8a94c5269a30e75eb57c622f38
-  languageName: node
-  linkType: hard
-
-"downshift@npm:^4.0.5":
-  version: 4.1.0
-  resolution: "downshift@npm:4.1.0"
-  dependencies:
-    "@babel/runtime": ^7.4.5
-    compute-scroll-into-view: ^1.0.9
-    prop-types: ^15.7.2
-    react-is: ^16.9.0
-  peerDependencies:
-    react: ">=0.14.9"
-  checksum: 5c87979b9c606bca58f872524b57bff94cf183653971beddf411c436fae3e0be91229eaeffc0e402c5e8331cc74e96432c72ed0b89b584b6b38f0126f6df3794
   languageName: node
   linkType: hard
 
@@ -32390,17 +32345,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"prompts@npm:^2.0.1, prompts@npm:^2.3.0":
-  version: 2.3.1
-  resolution: "prompts@npm:2.3.1"
-  dependencies:
-    kleur: ^3.0.3
-    sisteransi: ^1.0.4
-  checksum: 2a07f59a7bf474b9a56da908a128e3972e78408eaac0802bcd1638fa7ff2caf05e7c518a459784e9c0c7a2e1ab03b8b7a608d27fc485c9e19bb099891b4994bb
-  languageName: node
-  linkType: hard
-
-"prompts@npm:^2.4.0":
+"prompts@npm:^2.0.1, prompts@npm:^2.3.0, prompts@npm:^2.4.0":
   version: 2.4.1
   resolution: "prompts@npm:2.4.1"
   dependencies:
@@ -32895,13 +32840,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"re-resizable@npm:^4.7.1":
-  version: 4.11.0
-  resolution: "re-resizable@npm:4.11.0"
-  checksum: c6528f3bbd3f65b6ba4b3ca2e2c3d9dcf73fee32c666fc424e60be575f7d11cfcf176b106f3d2d14f22df9779476b2fe3d5d9ebb57512b76d0a7d8449cf30cca
-  languageName: node
-  linkType: hard
-
 "re-resizable@npm:^6.4.0":
   version: 6.5.1
   resolution: "re-resizable@npm:6.5.1"
@@ -32932,7 +32870,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-autosize-textarea@npm:^7.0.0, react-autosize-textarea@npm:^7.1.0":
+"react-autosize-textarea@npm:^7.1.0":
   version: 7.1.0
   resolution: "react-autosize-textarea@npm:7.1.0"
   dependencies:
@@ -33280,7 +33218,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4, react-is@npm:^16.9.0":
+"react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.4":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 33977da7a5f1a287936a0c85639fec6ca74f4f15ef1e59a6bc20338fc73dc69555381e211f7a3529b8150a1f71e4225525b41b60b52965bda53ce7d47377ada1
@@ -36611,13 +36549,6 @@ resolve@^2.0.0-next.3:
     mime: ^2.3.1
     totalist: ^1.0.0
   checksum: 455ed904135576da7cca3edf54102a429f8caeb32e0cf4d1700593c559a8f699c9699f1717904b658c5ed472a8b1a3f5e790e3d1b40915ed09bb89f7d74825ca
-  languageName: node
-  linkType: hard
-
-"sisteransi@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "sisteransi@npm:1.0.4"
-  checksum: 69675d6829b34c4850df02c243273390789c996f623ff07f1b0f9bbe5bb9820993ac2e4583003c3034552b2b608b78cd5c1a9f709342b5a9a77f7ab4bc1006ef
   languageName: node
   linkType: hard
 
@@ -41645,21 +41576,12 @@ typescript@^4.3.5:
   languageName: node
   linkType: hard
 
-"ws@npm:^6.1.4":
+"ws@npm:^6.1.4, ws@npm:^6.2.1":
   version: 6.2.2
   resolution: "ws@npm:6.2.2"
   dependencies:
     async-limiter: ~1.0.0
   checksum: d628a1e95668a296644b4f51ce5debb43d9f1d89ebb2e32fef205a685b9439378eb824d60ce3a40bbc3bad0e887d84a56b343f2076f48d74f17c4c0800c42967
-  languageName: node
-  linkType: hard
-
-"ws@npm:^6.2.1":
-  version: 6.2.1
-  resolution: "ws@npm:6.2.1"
-  dependencies:
-    async-limiter: ~1.0.0
-  checksum: 13a6de384bc3bccff40bfd1a5077b07549d9085f2c69128bcf4c83c8ec38809a92ffd351900ede385e096fe3f25c57e079f6df78a7e3d83cce308e731b3233a4
   languageName: node
   linkType: hard
 
