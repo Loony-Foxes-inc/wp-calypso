@@ -28,6 +28,7 @@ const LayoutLoggedOut = ( {
 	isPopup,
 	isJetpackWooCommerceFlow,
 	isJetpackWooDnaFlow,
+	isP2Login,
 	wccomFrom,
 	masterbarIsHidden,
 	oauth2Client,
@@ -60,6 +61,7 @@ const LayoutLoggedOut = ( {
 		'is-jetpack-woocommerce-flow': isJetpackWooCommerceFlow,
 		'is-jetpack-woo-dna-flow': isJetpackWooDnaFlow,
 		'is-wccom-oauth-flow': isWooOAuth2Client( oauth2Client ) && wccomFrom,
+		'is-p2-login': isP2Login,
 	};
 
 	let masterbar = null;
@@ -135,8 +137,7 @@ export default compose(
 		const isWhiteLogin = startsWith( currentRoute, '/log-in/new' );
 		const isJetpackWooDnaFlow = wooDnaConfig( getInitialQueryArguments( state ) ).isWooDnaFlow();
 		const isP2Login =
-			startsWith( currentRoute, '/log-in' ) &&
-			'p2' === get( getCurrentQueryArguments( state ), 'from' );
+			'login' === sectionName && 'p2' === get( getCurrentQueryArguments( state ), 'from' );
 		const noMasterbarForRoute = isJetpackLogin || isWhiteLogin || isJetpackWooDnaFlow || isP2Login;
 		const isPopup = '1' === get( getCurrentQueryArguments( state ), 'is_popup' );
 		const noMasterbarForSection = [ 'signup', 'jetpack-connect' ].includes( sectionName );
@@ -151,6 +152,7 @@ export default compose(
 			isPopup,
 			isJetpackWooCommerceFlow,
 			isJetpackWooDnaFlow,
+			isP2Login,
 			wccomFrom,
 			masterbarIsHidden:
 				! masterbarIsVisible( state ) || noMasterbarForSection || noMasterbarForRoute,
