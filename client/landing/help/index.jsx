@@ -24,6 +24,7 @@ import {
 	enhancer as httpDataEnhancer,
 } from 'calypso/state/data-layer/http-data';
 import wpcomApiMiddleware from 'calypso/state/data-layer/wpcom-api-middleware';
+import happychatMiddleware from 'calypso/state/happychat/middleware';
 import { requestHappychatEligibility } from 'calypso/state/happychat/user/actions';
 import { setStore } from 'calypso/state/redux-store';
 import sites from 'calypso/state/sites/reducer';
@@ -43,7 +44,12 @@ async function AppBoot() {
 			consoleDispatcher,
 			addReducerEnhancer,
 			httpDataEnhancer,
-			applyMiddleware( thunkMiddleware, wpcomApiMiddleware, analyticsMiddleware )
+			applyMiddleware(
+				thunkMiddleware,
+				wpcomApiMiddleware,
+				analyticsMiddleware,
+				happychatMiddleware
+			)
 		)
 	);
 
