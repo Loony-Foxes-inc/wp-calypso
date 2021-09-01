@@ -99,7 +99,7 @@ __metadata:
     enzyme-to-json: ^3.4.3
     jest-config: ^27.0.6
     jest-enzyme: ^7.1.2
-    mini-css-extract-plugin: ^1.6.0
+    mini-css-extract-plugin: ^2.2.2
     postcss-custom-properties: ^11.0.0
     postcss-loader: ^5.3.0
     recursive-copy: ^2.0.10
@@ -1022,7 +1022,7 @@ __metadata:
     "@romainberger/css-diff": ^1.0.3
     async: ^2.0.0
     css-loader: ^5.2.4
-    mini-css-extract-plugin: ^1.6.0
+    mini-css-extract-plugin: ^2.2.2
     rtlcss: ^3.1.2
     webpack: ^5.46.0
   peerDependencies:
@@ -26896,7 +26896,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mini-css-extract-plugin@npm:^1.3.9, mini-css-extract-plugin@npm:^1.6.0":
+"mini-css-extract-plugin@npm:^1.3.9":
   version: 1.6.0
   resolution: "mini-css-extract-plugin@npm:1.6.0"
   dependencies:
@@ -26906,6 +26906,17 @@ fsevents@~2.1.2:
   peerDependencies:
     webpack: ^4.4.0 || ^5.0.0
   checksum: 8e71f7e7abf6760a7b3216e8f76aa8b4ee205ee32ecf2ca27d465a59858ff6f4faf76b8031875139a3889360a05a2f69b438fea6abc08c59da27026cd795ca45
+  languageName: node
+  linkType: hard
+
+"mini-css-extract-plugin@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "mini-css-extract-plugin@npm:2.2.2"
+  dependencies:
+    schema-utils: ^3.1.0
+  peerDependencies:
+    webpack: ^5.0.0
+  checksum: b5d5c73fbef092787d3c62343821f475706f72c4eedba4f7bb7be7a40d589500e4cb34089e98891572a421e1a6d406f5d59584bc782582f964181f20d8f37352
   languageName: node
   linkType: hard
 
@@ -40118,7 +40129,7 @@ typescript@^4.3.5:
     loader-utils: ^1.2.3
     lodash: ^4.17.21
     lunr: ^2.3.8
-    mini-css-extract-plugin: ^1.6.0
+    mini-css-extract-plugin: ^2.2.2
     mixedindentlint: ^1.2.0
     mkdirp: ^1.0.4
     ncp: ^2.0.0
