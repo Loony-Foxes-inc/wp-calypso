@@ -2967,7 +2967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.15.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.3.4, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.15.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.3, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.15.3
   resolution: "@babel/runtime@npm:7.15.3"
   dependencies:
@@ -5366,8 +5366,8 @@ __metadata:
     prop-types: ^15.6.1
     react-lifecycles-compat: ^3.0.4
   peerDependencies:
-    react: 15.x || 16.x || 16.4.0-alpha.0911da3
-    react-dom: 15.x || 16.x || 16.4.0-alpha.0911da3
+    react: "*"
+    react-dom: "*"
   checksum: 083fcb658ae5cd0de2b7ebe56bbb8c1b4aa6ec035038d41916afcdd2f31ffd7ccdd6848f7ee8e53d562c31fc4c1b1953fd7007eb9d57daf65779f344ca5a5373
   languageName: node
   linkType: hard
@@ -10640,7 +10640,7 @@ __metadata:
     prop-types-exact: ^1.2.0
     react-is: ^16.13.1
   peerDependencies:
-    react: ^0.14 || ^15.0.0 || ^16.0.0-alpha
+    react: "*"
   checksum: c3666777bf9ee3a077ce79a02fcf79b7cf3123b11a626750826912e1f0f44772177e6667176558e10384f4501556f5e7eeb198231e9f61794864465167c8ee33
   languageName: node
   linkType: hard
@@ -13688,8 +13688,8 @@ __metadata:
     chai: ^3.0.0 || ^4.0.0
     cheerio: 0.19.x || 0.20.x || 0.22.x || ^1.0.0-0
     enzyme: ^2.7.0 || ^3.0.0
-    react: ^0.14.0 || ^15.0.0-0 || ^16.0.0-0
-    react-dom: ^0.14.0 || ^15.0.0-0 || ^16.0.0-0
+    react: ^0.14.0 || ^15.0.0-0 || ^16.0.0-0 || ^17
+    react-dom: ^0.14.0 || ^15.0.0-0 || ^16.0.0-0 || ^17
   checksum: c7d11e4444336b44d42c6cce4e9a7f7e08bb8a97fdbb8bd0a10e0bf2bf441af2dc601e03031ec13e4969191c125308e3be81703cb5b3129c275b0976b2e78c1a
   languageName: node
   linkType: hard
@@ -15447,7 +15447,7 @@ __metadata:
     warning: ^4.0.3
   peerDependencies:
     prop-types: ^15.0.0
-    react: ^0.14.0 || ^15.0.0 || ^16.0.0
+    react: "*"
   checksum: 3f9dfde23da59e3f748b5f1b06c7ff8cbf48095cf2d62212427195860f1ee4b2b0b475280c19592f7fffb9fd100fd739af687281d7c5c93806d519bf66f6dd86
   languageName: node
   linkType: hard
@@ -20283,20 +20283,20 @@ __metadata:
   linkType: hard
 
 "fsevents@patch:fsevents@~2.1.2#~builtin<compat/fsevents>":
-  version: 2.1.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.1.2#~builtin<compat/fsevents>::version=2.1.2&hash=1cc4b2"
+  version: 2.1.3
+  resolution: "fsevents@patch:fsevents@npm%3A2.1.3#~builtin<compat/fsevents>::version=2.1.3&hash=1cc4b2"
   dependencies:
     node-gyp: latest
-  checksum: 929ca73d5940b45cc2156e3bdc19c46137e69d86eb02130983afb1f84a2908758d4bfadf6fb14e98283bdd4c5c9408ed4d98b12ad2ce65651947ab1940a6612e
+  checksum: 2f010fb4c75d061f60185e42b6aa3cb6cefef8b078f7f9c5acee345082d5f9f4e0b36a355fb77971f11d5eb77b3e7908cb0550aa209fbf13ad52440f9142e05c
   languageName: node
   linkType: hard
 
 fsevents@~2.1.2:
-  version: 2.1.2
-  resolution: "fsevents@npm:2.1.2"
+  version: 2.1.3
+  resolution: "fsevents@npm:2.1.3"
   dependencies:
     node-gyp: latest
-  checksum: d46fdec727a0caed98aa4155d624520d1625068bfce929be67d70a5268b0fd002ae179fafdfe4a1b15d6961c62201bb504e943e9651afc97c231ed134e23a31c
+  checksum: 87b5933c5e01d17883f5c6d8c84146dc12c75e7f349b465c9e41fb4efe9992cfc6f527e30ef5f96bc24f19ca36d9e7414c0fe2dcd519f6d7649c0668efe12556
   languageName: node
   linkType: hard
 
@@ -32878,8 +32878,8 @@ fsevents@~2.1.2:
     line-height: ^0.3.1
     prop-types: ^15.5.6
   peerDependencies:
-    react: ^0.14.0 || ^15.0.0 || ^16.0.0
-    react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
+    react: "*"
+    react-dom: "*"
   checksum: 3b791f2455808682241c9fc00cccce31804cb696c489a4800cd124fce8be6b624a4c21836e06568b6d7d45b6a8e4945460249c77235990ce015f9899cda10a7f
   languageName: node
   linkType: hard
@@ -32976,8 +32976,8 @@ fsevents@~2.1.2:
     react-with-styles-interface-css: ^4.0.2
   peerDependencies:
     moment: ^2.18.1
-    react: ^0.14 || ^15.5.4 || ^16.1.1
-    react-dom: ^0.14 || ^15.5.4 || ^16.1.1
+    react: "*"
+    react-dom: "*"
   checksum: bdd6986ea3e19d43d29b6e22ea1baf33ad736adb0ee5a3876816480d6699ea6a17a18819c9acc476714e93374ff16d8a5c02f1e1e3c442ed7be230d3596682d5
   languageName: node
   linkType: hard
@@ -33157,33 +33157,26 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-fast-compare@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "react-fast-compare@npm:2.0.4"
-  checksum: f0300c677e95198b5f993cbb8a983dab09586157dc678f9e2b5b29ff941b6677a8776fbbdc425ce102fad86937e36bb45cfcfd797f006270b97ccf287ebfb885
-  languageName: node
-  linkType: hard
-
-"react-fast-compare@npm:^3.0.1":
+"react-fast-compare@npm:^3.0.1, react-fast-compare@npm:^3.2.0":
   version: 3.2.0
   resolution: "react-fast-compare@npm:3.2.0"
   checksum: 2a7d75ce9fb5da1e3c01f74a5cd592f3369a8cc8d44e93654bf147ab221f430238e8be70677e896f2bfcb96a1cb7a47a8d05d84633de764a9d57d27005a4bb9e
   languageName: node
   linkType: hard
 
-"react-helmet-async@npm:^1.0.2":
-  version: 1.0.4
-  resolution: "react-helmet-async@npm:1.0.4"
+"react-helmet-async@npm:react-helmet-async@1.1.2":
+  version: 1.1.2
+  resolution: "react-helmet-async@npm:1.1.2"
   dependencies:
-    "@babel/runtime": ^7.3.4
+    "@babel/runtime": ^7.12.5
     invariant: ^2.2.4
     prop-types: ^15.7.2
-    react-fast-compare: ^2.0.4
+    react-fast-compare: ^3.2.0
     shallowequal: ^1.1.0
   peerDependencies:
-    react: ^16.6.0
-    react-dom: ^16.6.0
-  checksum: 6625cea0fe52b95868b1c3e61fb96927850b8dd46a9906c1d75489f55c8cd735e30b3f09913c45bdd1988fe1df03bd3678d14291ec3462559872b71ea8aacc6f
+    react: ^16.6.0 || ^17.0.0
+    react-dom: ^16.6.0 || ^17.0.0
+  checksum: 7b0f9535a5a979673363ef89a5ca795ec969c19e4c7f3ad491a4d1d72470b25f46afcc910ea7194a07e1522998c4da9e8754e6803020a742966c0094efc8bdfe
   languageName: node
   linkType: hard
 
@@ -33198,16 +33191,16 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-inspector@npm:^5.0.1":
-  version: 5.1.0
-  resolution: "react-inspector@npm:5.1.0"
+"react-inspector@npm:react-inspector@5.1.1":
+  version: 5.1.1
+  resolution: "react-inspector@npm:5.1.1"
   dependencies:
     "@babel/runtime": ^7.0.0
     is-dom: ^1.0.0
     prop-types: ^15.0.0
   peerDependencies:
-    react: ^16.8.4
-  checksum: 24571efe6a0600966a54e215c06a3044146bd842de862737c372146a0e9684beaa38eeb1a8605895d860f72c2caf71bb223ed2e5edec816050fabe0f27882fb7
+    react: ^16.8.4 || ^17.0.0
+  checksum: 64282953f1e9318501ae9ff64dc955845fce0b543577fcc5b6a5cf786d9a1872edadc5df5821d830a8510ecf629e9a220b323e5cd45b091508939f71ea332239
   languageName: node
   linkType: hard
 
@@ -33231,7 +33224,7 @@ fsevents@~2.1.2:
   dependencies:
     scrollparent: ^2.0.1
   peerDependencies:
-    react: ^16.1.1
+    react: "*"
   checksum: d259b7acd2250cbe73fe247879d9972f8a38ecc448b1d291781aabc16a557e74c07c96deddf48efe62f2b92fc2582dee6487227b5fe63898f428bf4e75fa335b
   languageName: node
   linkType: hard
@@ -33456,7 +33449,7 @@ fsevents@~2.1.2:
   version: 3.1.0
   resolution: "react-resize-aware@npm:3.1.0"
   peerDependencies:
-    react: ^16.8.0
+    react: ^17
   checksum: 7f8ce37106d695db757d2b51f4ea3a73450449eb1740d179c1a709836a1ae4dbd54d5b2b70c8b6ae45f5d63101b6e1182195d535c811bb9e62cbf3d2a3093290
   languageName: node
   linkType: hard
@@ -33514,8 +33507,8 @@ fsevents@~2.1.2:
   version: 0.11.0
   resolution: "react-simple-code-editor@npm:0.11.0"
   peerDependencies:
-    react: ^16.0.0
-    react-dom: ^16.0.0
+    react: "*"
+    react-dom: "*"
   checksum: 7b7457f21b4f3f5af2901ff5e24a1242ba97e01ffca93024d9a3bbca4e1934f1dbb637a16027359be29bf334bfd64342f4ee047d51c8dd227c69714d79a1aca5
   languageName: node
   linkType: hard
@@ -33529,8 +33522,8 @@ fsevents@~2.1.2:
     shallowequal: ^1.1.0
     throttle-debounce: ^2.1.0
   peerDependencies:
-    react: ^0.14.0 || ^15.0.0-0 || ^16.0.0
-    react-dom: ^0.14.0 || ^15.0.0-0 || ^16.0.0
+    react: "*"
+    react-dom: "*"
   checksum: 0d38b1d7a597a62cbca2ae3dd4cd4eaec46665b6a326af595d7bc9e8d13691c94dc748ce526a2255e7125222a04914ca95539baa36f2206a89a7677fce05f405
   languageName: node
   linkType: hard
@@ -33639,8 +33632,8 @@ fsevents@~2.1.2:
     object.values: ^1.0.4
     prop-types: ^15.6.2
   peerDependencies:
-    react: ^0.14 || ^15 || ^16
-    react-dom: ^0.14 || ^15 || ^16
+    react: "*"
+    react-dom: "*"
   checksum: 3697ec21138fca37fd5f56627b0ea17ca8975560e5b2b6c7b519b1a7ba902b3561577d4edbbd91815fd2bfc885817860f7233643f15121a98c78112459883e2c
   languageName: node
   linkType: hard
@@ -39358,22 +39351,22 @@ testarmada-magellan@11.0.10:
   linkType: hard
 
 typescript@^4.3.5:
-  version: 4.3.5
-  resolution: "typescript@npm:4.3.5"
+  version: 4.4.2
+  resolution: "typescript@npm:4.4.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 7699b1635e34008eb4167ede70d475e4eaece150622e9a143de6c58b160df3c52bae00beb1cd3a836a35cb32defc4d1dc56bdfb11f7ddbebaa003e405f97ad3a
+  checksum: 722033d9c864e5657e6ff750b6378de644863e735c7a40714ffc7ee2c89bb5a1f1e0c5b1f2fb227b425a964ee9d572e9af7dff98ee7c378df4df0afa471fa74c
   languageName: node
   linkType: hard
 
 "typescript@patch:typescript@^4.3.5#~builtin<compat/typescript>":
-  version: 4.3.5
-  resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"
+  version: 4.4.2
+  resolution: "typescript@patch:typescript@npm%3A4.4.2#~builtin<compat/typescript>::version=4.4.2&hash=d8b4e7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: ef1e2af6c380c281605be965a89192b3fa271a6c3c6148aef209d36046dc64bcc52fe8a880dbd76d5a03b70648f29c20d8924d1d63bb66816be373d1dfb60b67
+  checksum: fbdf9cecd50978bcb885fb97a4325d25ab311c90cc5e7925272b5314feab723d333d1fa8ccd8bae7b558edb576677191b5f9ed5727662c2a1752ed1534ddb47e
   languageName: node
   linkType: hard
 
@@ -40019,7 +40012,7 @@ typescript@^4.3.5:
   version: 1.1.1
   resolution: "use-memo-one@npm:1.1.1"
   peerDependencies:
-    react: ^16.8.0
+    react: "*"
   checksum: 0139094ca1e79a42ce07da1a339cf43dbe2b3d1750086bdda0bddb5cf301358816761e58dc17d6813d161d97d3fb17677228b0551b660db0163de9706446d20a
   languageName: node
   linkType: hard
