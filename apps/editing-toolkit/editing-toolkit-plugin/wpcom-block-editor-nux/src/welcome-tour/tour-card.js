@@ -19,16 +19,19 @@ const useEffectOnlyOnce = ( func ) => useEffect( func, [] );
 
 function WelcomeTourCard( {
 	cardContent,
-	cardIndex,
+	currentCardIndex,
 	justMaximized,
 	lastCardIndex,
 	onMinimize,
 	onDismiss,
 	setJustMaximized,
 	setCurrentCardIndex,
+	onNextCardProgression,
+	onPreviousCardProgression,
 } ) {
 	const { description, heading, imgSrc } = cardContent;
-	const isLastCard = cardIndex === lastCardIndex;
+	const isLastCard = currentCardIndex === lastCardIndex;
+
 	// Ensure tracking is recorded once per slide view
 	useEffectOnlyOnce( () => {
 		// Don't track slide view if returning from minimized state
@@ -36,8 +39,9 @@ function WelcomeTourCard( {
 			setJustMaximized( false );
 			return;
 		}
+
 		recordTracksEvent( 'calypso_editor_wpcom_tour_slide_view', {
-			slide_number: cardIndex + 1,
+			slide_number: currentCardIndex + 1,
 			is_last_slide: isLastCard,
 			slide_heading: heading,
 			is_gutenboarding: window.calypsoifyGutenberg?.isGutenboarding,
@@ -46,12 +50,7 @@ function WelcomeTourCard( {
 
 	return (
 		<Card className="welcome-tour-card" isElevated>
-			<CardOverlayControls
-				setJustMaximized={ setJustMaximized }
-				onDismiss={ onDismiss }
-				onMinimize={ onMinimize }
-				slideNumber={ cardIndex + 1 }
-			/>
+			<CardOverlayControls onDismiss={ onDismiss } onMinimize={ onMinimize } />
 			<CardMedia>
 				<img alt={ __( 'Editor Welcome Tour', 'full-site-editing' ) } src={ imgSrc } />
 			</CardMedia>
@@ -75,10 +74,12 @@ function WelcomeTourCard( {
 					<TourRating></TourRating>
 				) : (
 					<CardNavigation
-						cardIndex={ cardIndex }
+						currentCardIndex={ currentCardIndex }
 						lastCardIndex={ lastCardIndex }
 						onDismiss={ onDismiss }
 						setCurrentCardIndex={ setCurrentCardIndex }
+						onNextCardProgression={ onNextCardProgression }
+						onPreviousCardProgression={ onPreviousCardProgression }
 					></CardNavigation>
 				) }
 			</CardFooter>
@@ -86,9 +87,15 @@ function WelcomeTourCard( {
 	);
 }
 
-function CardNavigation( { cardIndex, lastCardIndex, onDismiss, setCurrentCardIndex } ) {
+function CardNavigation( {
+	currentCardIndex,
+	lastCardIndex,
+	onDismiss,
+	setCurrentCardIndex,
+	onNextCardProgression,
+	onPreviousCardProgression,
+} ) {
 	const localeSlug = useLocale();
-
 	// These are defined on their own lines because of a minification issue.
 	// __('translations') do not always work correctly when used inside of ternary statements.
 	const startTourLabel =
@@ -98,20 +105,21 @@ function CardNavigation( { cardIndex, lastCardIndex, onDismiss, setCurrentCardIn
 			? __( 'Try it out!', 'full-site-editing' )
 			: __( 'Start Tour', 'full-site-editing' );
 	const nextLabel = __( 'Next', 'full-site-editing' );
+
 	return (
 		<>
 			<PaginationControl
-				currentPage={ cardIndex }
+				currentPage={ currentCardIndex }
 				numberOfPages={ lastCardIndex + 1 }
 				setCurrentPage={ setCurrentCardIndex }
 			/>
 			<div>
-				{ cardIndex === 0 ? (
+				{ currentCardIndex === 0 ? (
 					<Button isTertiary={ true } onClick={ () => onDismiss( 'no-thanks-btn' ) }>
 						{ __( 'Skip', 'full-site-editing' ) }
 					</Button>
 				) : (
-					<Button isTertiary={ true } onClick={ () => setCurrentCardIndex( cardIndex - 1 ) }>
+					<Button isTertiary={ true } onClick={ onPreviousCardProgression }>
 						{ __( 'Back', 'full-site-editing' ) }
 					</Button>
 				) }
@@ -119,16 +127,16 @@ function CardNavigation( { cardIndex, lastCardIndex, onDismiss, setCurrentCardIn
 				<Button
 					className="welcome-tour-card__next-btn"
 					isPrimary={ true }
-					onClick={ () => setCurrentCardIndex( cardIndex + 1 ) }
+					onClick={ onNextCardProgression }
 				>
-					{ cardIndex === 0 ? startTourLabel : nextLabel }
+					{ currentCardIndex === 0 ? startTourLabel : nextLabel }
 				</Button>
 			</div>
 		</>
 	);
 }
 
-function CardOverlayControls( { onMinimize, onDismiss, slideNumber } ) {
+function CardOverlayControls( { onMinimize, onDismiss } ) {
 	const [ isMobileView, setIsMobileView ] = useState( isMobile() );
 
 	useEffectOnlyOnce( () => {
@@ -138,13 +146,6 @@ function CardOverlayControls( { onMinimize, onDismiss, slideNumber } ) {
 		};
 	} );
 
-	const handleOnMinimize = () => {
-		onMinimize( true );
-		recordTracksEvent( 'calypso_editor_wpcom_tour_minimize', {
-			is_gutenboarding: window.calypsoifyGutenberg?.isGutenboarding,
-			slide_number: slideNumber,
-		} );
-	};
 	const buttonClasses = classNames( 'welcome-tour-card__overlay-controls', {
 		'welcome-tour-card__overlay-controls-visible': isMobileView,
 	} );
@@ -158,7 +159,7 @@ function CardOverlayControls( { onMinimize, onDismiss, slideNumber } ) {
 					className="welcome-tour-card__minimize-icon"
 					icon={ minimize }
 					iconSize={ 24 }
-					onClick={ handleOnMinimize }
+					onClick={ onMinimize }
 				></Button>
 				<Button
 					label={ __( 'Close Tour', 'full-site-editing' ) }
