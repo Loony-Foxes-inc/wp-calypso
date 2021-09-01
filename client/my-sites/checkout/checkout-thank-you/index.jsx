@@ -22,6 +22,7 @@ import {
 	isWpComBusinessPlan,
 	shouldFetchSitePlans,
 	isMarketplaceProduct,
+	isDIFMProduct,
 } from '@automattic/calypso-products';
 import { Card } from '@automattic/components';
 import { localize } from 'i18n-calypso';
@@ -385,6 +386,7 @@ export class CheckoutThankYou extends React.Component {
 		let wasJetpackPlanPurchased = false;
 		let wasEcommercePlanPurchased = false;
 		let wasMarketplaceProduct = false;
+		let wasDIFMProduct = false;
 		let delayedTransferPurchase = false;
 		let wasDomainMappingOnlyProduct = false;
 
@@ -395,6 +397,7 @@ export class CheckoutThankYou extends React.Component {
 			wasEcommercePlanPurchased = purchases.some( isEcommerce );
 			delayedTransferPurchase = find( purchases, isDelayedDomainTransfer );
 			wasMarketplaceProduct = purchases.some( isMarketplaceProduct );
+			wasDIFMProduct = purchases.some( isDIFMProduct );
 			wasDomainMappingOnlyProduct = purchases.length === 1 && purchases.some( isDomainMapping );
 		}
 
@@ -411,8 +414,13 @@ export class CheckoutThankYou extends React.Component {
 			/* eslint-enable wpcalypso/jsx-classname-namespace */
 		}
 
-		// Rebrand Cities thanks page
+		if ( wasDIFMProduct ) {
+			return (
+				<AsyncLoad require="calypso/my-sites/checkout/checkout-thank-you/difm/difm-lite-thank-you" />
+			);
+		}
 
+		// Rebrand Cities thanks page
 		if (
 			this.props.selectedSite &&
 			isRebrandCitiesSiteUrl( this.props.selectedSite.slug ) &&
