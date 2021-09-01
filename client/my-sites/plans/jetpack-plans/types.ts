@@ -58,6 +58,12 @@ export interface JetpackFreeProps {
 	siteId: number | null;
 }
 
+export interface BackupPricingProps {
+	defaultDuration: Duration;
+	header: ReactNode;
+	footer: ReactNode;
+}
+
 export type SelectorProductCost = {
 	isFree?: boolean;
 	cost?: number;
