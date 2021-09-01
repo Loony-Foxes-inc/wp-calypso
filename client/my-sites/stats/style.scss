@@ -122,3 +122,11 @@
 		margin-right: 16px;
 	}
 }
+
+// adjust when scoll arrows show up in stats insights when chat panel is open
+.layout.has-chat.is-section-stats {
+	.post-trends__scroll-left,
+	.post-trends__scroll-right {
+		display: block;
+	}
+}
