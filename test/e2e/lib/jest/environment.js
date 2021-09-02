@@ -19,9 +19,12 @@ class JestEnvironmentE2E extends JestEnvironmentNode {
 				break;
 
 			case 'hook_failure':
-				console.error( event.error );
+				this.global.__CURRENT_TEST_FAILED__ = true;
 				this.testFailed = true;
-				break;
+				// Re-throw the error. This triggers Jest to print
+				// the contents nicely with color code.
+				throw event.error;
+
 			case 'test_fn_failure':
 				this.global.__CURRENT_TEST_FAILED__ = true;
 				this.testFailed = true;
