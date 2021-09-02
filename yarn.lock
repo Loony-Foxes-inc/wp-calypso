@@ -33531,8 +33531,8 @@ fsevents@~2.1.2:
   dependencies:
     prop-types: ^15.5.10
   peerDependencies:
-    react: ^15.5.4 || ^16.0.0-0
-    react-dom: ^15.5.4 || ^16.0.0-0
+    react: "*"
+    react-dom: "*"
   checksum: 378e8ce474e63bd46c4b957d25e62a45bdcac7fcf7944ebba711743171a74e29d7bd5faa0db6533d3cd22ba47bebf0101b661a2fdc06c0a73840c2c4005e1bdd
   languageName: node
   linkType: hard
