@@ -39334,23 +39334,23 @@ testarmada-magellan@11.0.10:
   languageName: node
   linkType: hard
 
-typescript@^4.3.5:
-  version: 4.4.2
-  resolution: "typescript@npm:4.4.2"
+"typescript@npm:4.3.5":
+  version: 4.3.5
+  resolution: "typescript@npm:4.3.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 722033d9c864e5657e6ff750b6378de644863e735c7a40714ffc7ee2c89bb5a1f1e0c5b1f2fb227b425a964ee9d572e9af7dff98ee7c378df4df0afa471fa74c
+  checksum: 7699b1635e34008eb4167ede70d475e4eaece150622e9a143de6c58b160df3c52bae00beb1cd3a836a35cb32defc4d1dc56bdfb11f7ddbebaa003e405f97ad3a
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.3.5#~builtin<compat/typescript>":
-  version: 4.4.2
-  resolution: "typescript@patch:typescript@npm%3A4.4.2#~builtin<compat/typescript>::version=4.4.2&hash=d8b4e7"
+"typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>":
+  version: 4.3.5
+  resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: fbdf9cecd50978bcb885fb97a4325d25ab311c90cc5e7925272b5314feab723d333d1fa8ccd8bae7b558edb576677191b5f9ed5727662c2a1752ed1534ddb47e
+  checksum: ef1e2af6c380c281605be965a89192b3fa271a6c3c6148aef209d36046dc64bcc52fe8a880dbd76d5a03b70648f29c20d8924d1d63bb66816be373d1dfb60b67
   languageName: node
   linkType: hard
 
