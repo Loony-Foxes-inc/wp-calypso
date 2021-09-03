@@ -207,12 +207,12 @@ fun gutenbergBuildType(screenSize: String, buildUuid: String): BuildType {
 	}
 }
 
-fun gutenbergPlaywrightBuildType( viewportName: String, buildUuid: String ): BuildType {
+fun gutenbergPlaywrightBuildType( targetDevice: String, buildUuid: String ): BuildType {
     return BuildType {
-		id("WPComTests_gutenberg_Playwright_$viewportName")
+		id("WPComTests_gutenberg_Playwright_$targetDevice")
 		uuid=buildUuid
-		name = "Playwright E2E Tests ($viewportName)"
-		description = "Runs Gutenberg E2E tests in $viewportName size using Playwright"
+		name = "Playwright E2E Tests ($targetDevice)"
+		description = "Runs Gutenberg E2E tests as $targetDevice using Playwright"
 
 
         artifactRules = """
@@ -267,7 +267,7 @@ fun gutenbergPlaywrightBuildType( viewportName: String, buildUuid: String ): Bui
                 """
             }
             bashNodeScript {
-                name = "Run e2e tests ($viewportName)"
+                name = "Run e2e tests ($targetDevice)"
                 scriptContent = """
                     shopt -s globstar
                     set -x
@@ -292,7 +292,7 @@ fun gutenbergPlaywrightBuildType( viewportName: String, buildUuid: String ): Bui
                     openssl aes-256-cbc -md sha1 -d -in ./config/encrypted.enc -out ./config/local-test.json -k "%CONFIG_E2E_ENCRYPTION_KEY%"
 
                     # Run the test
-                    export VIEWPORT_NAME=$viewportName
+                    export TARGET_DEVICE=$targetDevice
                     export LOCALE=en
                     export NODE_CONFIG="{\"calypsoBaseURL\":\"${'$'}{URL%/}\"}"
                     export DEBUG=pw:api
