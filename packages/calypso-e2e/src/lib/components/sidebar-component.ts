@@ -52,20 +52,23 @@ export class SidebarComponent {
 		await this.scrollItemIntoViewIfNeeded( itemSelector );
 
 		if ( subitem ) {
-			// Click top-level item without waiting for navigation if targeting subitem.
-			await this.page.click( itemSelector );
+			// Click on the top level item first.
+			await Promise.all( [ this.page.waitForNavigation(), this.page.click( itemSelector ) ] );
 
 			const subitemSelector = `.is-toggle-open :text-is("${ subitem }"):visible`;
 			await this.scrollItemIntoViewIfNeeded( subitemSelector );
 
+			// Click on the subitem.
 			await Promise.all( [ this.page.waitForNavigation(), this.page.click( subitemSelector ) ] );
 		} else {
+			// If only the top-level item is requested, perform the click and move on to verification.
 			await Promise.all( [ this.page.waitForNavigation(), this.page.click( itemSelector ) ] );
 		}
 
 		/**
-		 * Do not attempt to retry if we've navigated outside wp.com as the sidebar
+		 * Do not attempt to retry if we've navigated outside WordPress.com as the sidebar
 		 * is no longer present.
+		 * eg. Appearance > Widgets loads `wp-admin`.
 		 */
 		const currentURL = await this.page.url();
 		if ( ! currentURL.startsWith( 'https://wordpress.com' ) ) {

@@ -64,9 +64,14 @@ export class ReaderPage {
 	 * @returns {Promise<void>} No return value.
 	 */
 	async commentOnLatestPost( comment: string ): Promise< void > {
-		await this.page.click( selectors.commentButtonLocator );
+		await Promise.all( [
+			this.page.waitForNavigation(),
+			this.page.click( selectors.commentButtonLocator ),
+		] );
 		await this.page.fill( selectors.commentTextAreaLocator, comment );
 		await this.page.click( selectors.commentSubmitLocator );
+		// Ensure the posted comment shows up on page.
+		await this.page.waitForSelector( `:text("${ comment }")` );
 	}
 
 	/**
