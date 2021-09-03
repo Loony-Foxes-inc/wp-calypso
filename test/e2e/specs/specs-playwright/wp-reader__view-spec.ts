@@ -52,14 +52,13 @@ describe( DataHelper.createSuiteTitle( 'Reader: View and Comment' ), function ()
 		await navBarComponent.openNotificationsPanel();
 	} );
 
-	it( 'Delete the new comment', async function () {
+	it( 'See notification for the comment', async function () {
 		notificationsComponent = new NotificationsComponent( page );
 		await notificationsComponent.clickNotification( comment );
-		await notificationsComponent.clickNotificationAction( 'Trash' );
 	} );
 
-	it( 'Wait for Undo Message to display and then disappear', async function () {
-		await notificationsComponent.waitForUndoMessage();
+	it( 'Delete the new comment', async function () {
+		await notificationsComponent.clickNotificationAction( 'Trash' );
 		await notificationsComponent.waitForUndoMessageToDisappear();
 	} );
 } );

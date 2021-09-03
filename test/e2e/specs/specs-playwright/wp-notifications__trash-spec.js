@@ -67,5 +67,6 @@ describe( DataHelper.createSuiteTitle( 'Notifications' ), function () {
 
 	it( 'Delete comment from notification', async function () {
 		await notificationsComponent.clickNotificationAction( 'Trash' );
+		await notificationsComponent.waitForUndoMessageToDisappear();
 	} );
 } );
