@@ -638,6 +638,7 @@ fun playwrightBuildType( targetDevice: String, buildUuid: String ): BuildType {
 
 					# Run the test
 					export TARGET_DEVICE=$targetDevice
+					export HEADLESS=true
 					export LOCALE=en
 					export NODE_CONFIG="{\"calypsoBaseURL\":\"${'$'}{URL%/}\"}"
 					export DEBUG=pw:api
