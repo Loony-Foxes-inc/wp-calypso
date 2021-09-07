@@ -33,9 +33,10 @@ const selectors = {
 	publishPanel: '.editor-post-publish-panel',
 	viewButton: '.editor-post-publish-panel a:has-text("View")',
 	addNewButton: '.editor-post-publish-panel a:text-matches("Add a New P(ost|age)")',
+	closePublishPanel: 'button[aria-label="Close panel"]',
 
 	// Block editor sidebar
-	sidebarButton: 'button[aria-label="Block editor sidebar"]',
+	openSidebarButton: 'button[aria-label="Block editor sidebar"]',
 	dashboardLink: 'a[aria-description="Returns to the dashboard"]',
 };
 
@@ -312,8 +313,7 @@ export class GutenbergEditorPage {
 	 */
 	async toggleSidebar(): Promise< void > {
 		const frame = await this.getEditorFrame();
-		// Clicking on the W icon to show the sidebar triggers a navigation event to about:blank.
-		await Promise.all( [ this.page.waitForNavigation(), frame.click( selectors.sidebarButton ) ] );
+		await frame.click( selectors.openSidebarButton );
 	}
 
 	/**
