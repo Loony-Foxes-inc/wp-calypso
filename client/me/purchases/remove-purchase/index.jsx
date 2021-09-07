@@ -391,7 +391,7 @@ class RemovePurchase extends Component {
 			);
 		}
 
-		if ( this.props.isAtomicSite && ! isJetpackSearch( purchase ) ) {
+		if ( this.props.shouldRevertAtomicSite && ! config.isEnabled( 'atomic/automated-revert' ) ) {
 			return this.renderAtomicDialog( purchase );
 		}
 
@@ -448,12 +448,14 @@ class RemovePurchase extends Component {
 export default connect(
 	( state, { purchase } ) => {
 		const isJetpack = purchase && ( isJetpackPlan( purchase ) || isJetpackProduct( purchase ) );
+		const isAtomicSite = isSiteAutomatedTransfer( state, purchase.siteId );
 		return {
 			isDomainOnlySite: purchase && isDomainOnly( state, purchase.siteId ),
-			isAtomicSite: isSiteAutomatedTransfer( state, purchase.siteId ),
+			isAtomicSite,
 			isChatAvailable: isHappychatAvailable( state ),
 			isJetpack,
 			purchasesError: getPurchasesError( state ),
+			shouldRevertAtomicSite: isAtomicSite && ! isJetpackSearch( purchase ),
 			userId: getCurrentUserId( state ),
 		};
 	},
