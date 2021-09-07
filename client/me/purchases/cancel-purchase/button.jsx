@@ -164,15 +164,15 @@ class CancelPurchaseButton extends Component {
 					return;
 				}
 
-				if ( response.status === 'completed' ) {
-					this.props.successNotice( response.message, { displayOnNextPage: true } );
+				this.props.successNotice( response.message, { displayOnNextPage: true } );
 
+				if ( response.status === 'completed' ) {
 					this.props.refreshSitePlans( purchase.siteId );
 
 					this.props.clearPurchases();
-
-					page.redirect( this.props.purchaseListUrl );
 				}
+
+				page.redirect( this.props.purchaseListUrl );
 			}
 		);
 	};
