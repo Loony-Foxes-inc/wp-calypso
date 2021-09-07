@@ -91,8 +91,6 @@ export const removePurchase = ( purchaseId, userId ) => ( dispatch ) => {
 					dispatch( {
 						type: PURCHASE_REMOVE_QUEUED,
 						purchaseId,
-						purchases: data.purchases,
-						userId,
 					} );
 					break;
 				default:

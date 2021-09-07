@@ -138,6 +138,14 @@ class RemovePurchase extends Component {
 						} ),
 						{ isPersistent: true }
 					);
+				} else if ( purchase.hasQueuedRemoval ) {
+					this.props.successNotice(
+						translate( 'We are removing %(productName)s from {{siteName/}}.', {
+							args: { productName },
+							components: { siteName: <em>{ purchase.domain }</em> },
+						} ),
+						{ isPersistent: true }
+					);
 				} else {
 					this.props.successNotice(
 						translate( '%(productName)s was removed from {{siteName/}}.', {
