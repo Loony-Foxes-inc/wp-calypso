@@ -120,7 +120,7 @@ describe.skip( DataHelper.createSuiteTitle( 'Signup: WordPress.com Free/Publish'
 	describe( 'Delete user account', function () {
 		it( 'Navigate to Me > Account Settings', async function () {
 			const navbarComponent = new NavbarComponent( page );
-			await navbarComponent.clickAccountSettings();
+			await navbarComponent.clickMe();
 			const meSidebarComponent = new MeSidebarComponent( page );
 			await meSidebarComponent.navigate( 'Account Settings' );
 		} );
