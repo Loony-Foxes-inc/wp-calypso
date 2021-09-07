@@ -148,7 +148,7 @@
  * Sidebar mode
  */
 
-@include breakpoint-deprecated( '>1040px' ) {
+.layout.has-docked-chat {
 	.happychat__container.is-open {
 		position: fixed;
 		height: calc( 100% - var( --masterbar-height ) );
@@ -186,7 +186,8 @@
 		}
 	}
 
-	.layout.has-chat {
+	// if the chat is open and is docked, make space for it in the layout
+	&.has-chat {
 		// add space in the main column for the docked sidebar
 		.layout__content {
 			padding: 79px 304px 32px;
