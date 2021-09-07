@@ -1,6 +1,5 @@
 import { Page } from 'playwright';
 import { getViewportName } from '../../browser-helper';
-// export type Plans = 'Free' | 'Personal' | 'Premium' | 'Business' | 'eCommerce';
 import type { Plans } from '../../types';
 
 export type Features =
